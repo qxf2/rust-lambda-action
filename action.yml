@@ -9,18 +9,22 @@ inputs:
 runs:
   using: composite
   steps:
-    - name: Install cargo lambda
+    - name: check current working directory
       run: |
-        python -m pip install --upgrade pip
-        pip install cargo-lambda
+        pwd
       shell: bash
+    # - name: Install cargo lambda
+    #   run: |
+    #     python -m pip install --upgrade pip
+    #     pip install cargo-lambda
+    #   shell: bash
     
-    - uses: actions/checkout@v3
-    - name: Build lambda function
-      run: cargo lambda build --release --arm64
-      shell: bash
+    # - uses: actions/checkout@v3
+    # - name: Build lambda function
+    #   run: cargo lambda build --release --arm64
+    #   shell: bash
     
-    - name: Deploy lambda
-      run: cargo lambda deploy --iam-role arn:aws:iam::285993504765:role/lambda-deployer ${{ inputs.lambda_directory }}
-      shell: bash
+    # - name: Deploy lambda
+    #   run: cargo lambda deploy --iam-role arn:aws:iam::285993504765:role/lambda-deployer ${{ inputs.lambda_directory }}
+    #   shell: bash
 
