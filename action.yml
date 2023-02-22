@@ -4,7 +4,6 @@ inputs:
   lambda_directory:
     description: the directory with the lambda code
     required: true
-    default: '.'
 
 runs:
   using: composite
@@ -17,14 +16,14 @@ runs:
     
     - uses: actions/checkout@v3
     - name: Build lambda function
-      run: |
-        pwd
-        cd ${{ inputs.lambda_directory }}
-        pwd
-        cargo lambda build --release --arm64
+      run: cargo lambda build --release --arm64
       shell: bash
-    
+      
     - name: Deploy lambda
       run: cargo lambda deploy --iam-role arn:aws:iam::285993504765:role/lambda-deployer ${{ inputs.lambda_directory }}
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: ${{ secrets.SKYPE_SENDER_REGION }}
       shell: bash
 
