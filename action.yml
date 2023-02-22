@@ -7,6 +7,15 @@ inputs:
   iam_role:
     description: the iam role required to deploy this lambda to production
     required: true
+  AWS_ACCESS_KEY_ID:
+    description: aws access key id
+    required: true
+  AWS_SECRET_ACCESS_KEY:
+    description: aws secret access key
+    required: true
+  AWS_DEFAULT_REGION:
+    description: aws default region
+    required: true
 
 runs:
   using: composite
@@ -28,5 +37,9 @@ runs:
         cd ${{ inputs.lambda_directory }}
         pwd
         cargo lambda deploy --iam-role ${{ inputs.iam_role }} ${{ inputs.lambda_directory }}
+      env:
+        AWS_ACCESS_KEY_ID: ${{ inputs.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ inputs.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: ${{ inputs.SKYPE_SENDER_REGION }}
       shell: bash
 
