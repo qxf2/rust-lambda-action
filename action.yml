@@ -28,9 +28,5 @@ runs:
         cd ${{ inputs.lambda_directory }}
         pwd
         cargo lambda deploy --iam-role ${{ inputs.iam_role }} ${{ inputs.lambda_directory }}
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_DEFAULT_REGION: ${{ secrets.SKYPE_SENDER_REGION }}
       shell: bash
 
