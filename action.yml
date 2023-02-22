@@ -4,7 +4,7 @@ inputs:
   lambda_directory:
     description: the directory which has the lambda code
     required: true
-  iam-role:
+  iam_role:
     description: the iam role required to deploy this lambda to production
     required: true
 
@@ -22,13 +22,12 @@ runs:
       run: |
         cd ${{ inputs.lambda_directory }}
         cargo lambda build --release --arm64
-      shell: bash
-      
+      shell: bash      
     - name: Deploy lambda
       run: |
         cd ${{ inputs.lambda_directory }}
         pwd
-        cargo lambda deploy --iam-role ${{ inputs.lambda_directory }} ${{ inputs.lambda_directory }}
+        cargo lambda deploy --iam-role ${{ inputs.iam_role }} ${{ inputs.lambda_directory }}
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
