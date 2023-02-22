@@ -20,7 +20,10 @@ runs:
       shell: bash
       
     - name: Deploy lambda
-      run: cargo lambda deploy --iam-role arn:aws:iam::285993504765:role/lambda-deployer ${{ inputs.lambda_directory }}
+      run: |
+        pwd
+        cd ${{ inputs.lambda_directory }}
+        cargo lambda deploy --iam-role arn:aws:iam::285993504765:role/lambda-deployer ${{ inputs.lambda_directory }}
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
