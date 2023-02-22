@@ -2,7 +2,10 @@ name: rust-lambda-action
 description: Deploy Rust lambdas
 inputs:
   lambda_directory:
-    description: the directory with the lambda code
+    description: the directory which has the lambda code
+    required: true
+  iam-role:
+    description: the iam role required to deploy this lambda to production
     required: true
 
 runs:
@@ -16,14 +19,16 @@ runs:
     
     - uses: actions/checkout@v3
     - name: Build lambda function
-      run: cargo lambda build --release --arm64
+      run: |
+        cd ${{ inputs.lambda_directory }}
+        cargo lambda build --release --arm64
       shell: bash
       
     - name: Deploy lambda
       run: |
-        pwd
         cd ${{ inputs.lambda_directory }}
-        cargo lambda deploy --iam-role arn:aws:iam::285993504765:role/lambda-deployer ${{ inputs.lambda_directory }}
+        pwd
+        cargo lambda deploy --iam-role ${{ inputs.lambda_directory }} ${{ inputs.lambda_directory }}
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
