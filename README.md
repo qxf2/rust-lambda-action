@@ -1,17 +1,17 @@
-## rust-lambda-action
+# rust-lambda-action
 A GitHub Action to deploy AWS Lambda functions written in Rust. 
 
 ### Background
 This uses https://github.com/awslabs/aws-lambda-rust-runtime, a Rust runtime for AWS Lambda. Cargo Lambda is a Cargo plugin, or subcommand that provides several commands to run, build and deploy Rust functions on Lambda.
 
 ### Use
-Deploys the specified directory within the repo to the Lambda function. Uses Amazon Linux 2 runtime for building Lambda function.
+Deploys the specified directory within the repo to the Lambda function. Uses Amazon Linux 2 runtime for building Lambda functions.
 
 ### Pre-requisites
-In order for the Action to have access to the code, you must use the `actions/checkout@master` job before it.
+In order for the Action to have access to the code, use the `actions/checkout@master` job before it.
 
 ### Structure
-- Lambda code should be structured normally/as Lambda would expect it.
+- Lambda code should be structured normally as Lambda would expect it.
 
 ### Environment variables
 Stored as secrets.
