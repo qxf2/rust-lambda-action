@@ -2,7 +2,7 @@
 A GitHub Action to deploy AWS Lambda functions written in Rust. 
 
 ### Background
-This uses https://github.com/awslabs/aws-lambda-rust-runtime, a Rust runtime for AWS Lambda. Cargo Lambda is a Cargo plugin, or subcommand that provides several commands to run, build and deploy Rust functions on Lambda.
+This uses <a href="https://www.cargo-lambda.info/">Cargo Lambda</a> which is a Cargo plugin, or subcommand that provides several commands to run, build and deploy Rust functions on Lambda. More details on how to use Cargo lambda can be found here - https://github.com/awslabs/aws-lambda-rust-runtime
 
 ### Use
 Deploys the specified directory within the repo to the Lambda function. Uses Amazon Linux 2 runtime for building Lambda functions.
