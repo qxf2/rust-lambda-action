@@ -11,13 +11,9 @@ Deploys the specified directory within the repo to the Lambda function. Uses Ama
 In order for the Action to have access to the code, use the `actions/checkout@master` job before it.
 
 ### Structure
-- Lambda code should be structured normally as Lambda would expect it.
+Lambda code should be structured normally as Lambda would expect it.
 
-### Environment variables
-Stored as secrets.
-- **AWS Credentials**  
-    Includes the `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, and `SKYPE_SENDER_REGION`. It's used by `awscli`, so the docs for that [can be found here](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html).
-    
+   
 ### Inputs
 - `lambda_directory`
     The directory which has the Lambda code
@@ -27,7 +23,7 @@ Stored as secrets.
 - `AWS_SECRET_ACCESS_KEY`
 - `AWS_DEFAULT_REGION`   
 
-__Implementation__
+### Implementation
 1. Used cargo lambda to first build for Amazon Linux 2 runtime
 2. Once the code is built, used cargo lambda to upload function to AWS. This step requires IAM role and AWS credentials.
 
