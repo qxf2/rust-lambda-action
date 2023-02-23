@@ -8,7 +8,7 @@ This uses <a href="https://www.cargo-lambda.info/">Cargo Lambda</a> which is a C
 Deploys the specified directory within the repo to the Lambda function. Uses Amazon Linux 2 runtime for building Lambda functions.
 
 ### Pre-requisites
-In order for the Action to have access to the code, use the `actions/checkout@master` job before it.
+In order for the Action to have access to the code, use the `actions/checkout@v3` job before it.
 
 ### Structure
 Lambda code should be structured normally as Lambda would expect it.
