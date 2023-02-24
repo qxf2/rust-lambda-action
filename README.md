@@ -43,7 +43,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Deploy code to Lambda
-      uses: qxf2/rust-lambda-action@v1.0.3
+      uses: qxf2/rust-lambda-action@v1.0.0
       with:
         lambda_directory: 'dummy_lambda'
         iam_role: arn:aws:iam::*********:role/lambda-deployer
