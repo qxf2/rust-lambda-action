@@ -43,10 +43,10 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Deploy code to Lambda
-      uses: sravantit25/rust-lambda-action@v1.0.3
+      uses: qxf2/rust-lambda-action@v1.0.3
       with:
         lambda_directory: 'dummy_lambda'
-        iam_role: arn:aws:iam::285993504765:role/lambda-deployer
+        iam_role: arn:aws:iam::*********:role/lambda-deployer
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_DEFAULT_REGION: ${{ secrets.SKYPE_SENDER_REGION }}
