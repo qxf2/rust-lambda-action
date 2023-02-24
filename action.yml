@@ -35,7 +35,6 @@ runs:
     - name: Deploy lambda
       run: |
         cd ${{ inputs.lambda_directory }}
-        pwd
         cargo lambda deploy --iam-role ${{ inputs.iam_role }} ${{ inputs.lambda_directory }}
       env:
         AWS_ACCESS_KEY_ID: ${{ inputs.AWS_ACCESS_KEY_ID }}
