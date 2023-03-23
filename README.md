@@ -24,8 +24,8 @@ Lambda code should be structured normally as Lambda would expect it.
 - `AWS_DEFAULT_REGION`   
 
 ### Implementation
-1. Used cargo lambda to first build for Amazon Linux 2 runtime
-2. Once the code is built, used cargo lambda to upload function to AWS. This step requires IAM role and AWS credentials.
+1. Used cargo lambda build, to first build for Amazon Linux 2 runtime
+2. Once the code is built, used cargo lambda deploy to upload function to AWS. This step requires IAM role and AWS credentials.
 
 
 ### Example workflow1
