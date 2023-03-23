@@ -1,5 +1,5 @@
 # rust-lambda-action
-A GitHub Action to deploy AWS Lambda functions written in Rust. 
+A GitHub Action to deploy AWS Lambda functions written in Rust. Use version 1.0.1
 
 ### Background
 This uses <a href="https://www.cargo-lambda.info/">Cargo Lambda</a> which is a Cargo plugin, or subcommand that provides several commands to run, build and deploy Rust functions on Lambda. More details on how to use Cargo lambda can be found here - https://github.com/awslabs/aws-lambda-rust-runtime
@@ -44,7 +44,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Deploy code to Lambda
-      uses: qxf2/rust-lambda-action@v1.0.0
+      uses: qxf2/rust-lambda-action@v1.0.1
       with:
         lambda_directory: 'dummy_lambda'
         iam_role: ${{ secrets.AWS_IAM_ROLE }}
@@ -71,7 +71,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Deploy code to Lambda
-      uses: qxf2/rust-lambda-action@v1.0.0
+      uses: qxf2/rust-lambda-action@v1.0.1
       with:
         lambda_directory: .
         iam_role: ${{ secrets.AWS_IAM_ROLE }}
